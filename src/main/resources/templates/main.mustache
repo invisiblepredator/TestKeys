@@ -1,0 +1,48 @@
+<html>
+<body>
+<div>{{some}}</div>
+<ol id="list">
+
+</ol>
+</body>
+
+<script>
+    function checkButton(evt) {
+        evt = (evt) ? evt : event;
+
+        let pressed = '';
+
+        if (evt.shiftKey) {
+            console.log('evt.shiftKey');
+            pressed = 'Shift + '
+        }
+
+        if (evt.ctrlKey) {
+            console.log('evt.ctrlKey');
+            pressed = 'Ctrl + ' + evt.key;
+        }
+
+        if (evt.altKey) {
+            console.log('Alt.altKey');
+            pressed = 'Alt + ' + evt.key;
+        }
+
+        if (evt.returnValue) {
+            evt.returnValue = false;
+        } else {
+            evt.preventDefault();
+        }
+        //==============================================================================================================
+        if (pressed.length < 9) {
+            let list = document.getElementById('list')
+            let li = document.createElement('LI')
+            li.innerHTML = pressed;
+            list.appendChild(li)
+        }
+        //==============================================================================================================
+    }
+
+    window.onkeydown = checkButton;
+</script>
+
+</html>
