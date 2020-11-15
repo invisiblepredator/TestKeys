@@ -13,20 +13,21 @@ public class KeysTesting {
         System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver.exe");
         System.setProperty("webdriver.gecko.driver", pathToDriver + "geckodriver.exe");
         System.setProperty("webdriver.opera.driver", pathToDriver + "operadriver.exe");
-        System.setProperty("webdriver.edge.driver", pathToDriver + "edgedriver.exe");
+        System.setProperty("webdriver.edge.driver", pathToDriver + "msedgedriver.exe");
+        //System.setProperty("webdriver.edge.driver", pathToDriver + "edgedriver.exe");     //TODO something went wrong with
         System.setProperty("webdriver.ie.driver", pathToDriver + "IEDriverServer.exe");
+        //TODO add here Safary driver and uncomment the Test
     }
 
-//    @Test
-////    public void inChromeTest() throws AWTException {
-////        BrowserManager.openBrowser(new ChromeDriver());
-////        Navigator.openBrowserPage().testKeys();
-////    }
+//    @Test TODO all in one test (much more faster but troubles with different keys makes fail our test)
+//    public void inChromeTest() throws AWTException {
+//        BrowserManager.openBrowser(new ChromeDriver());
+//        Navigator.openBrowserPage().testKeys();
+//    }
 
     @Test
     public void inChromeTest2() throws AWTException {
         BrowserPage browserPage = new BrowserPage();
-
         browserPage.testAltLetterCombinationKey("Chrome");
         browserPage.testCtrlLetterCombinationKey("Chrome");
         browserPage.testAltNumberKeyInNewBrowserWindow("Chrome");
@@ -36,7 +37,6 @@ public class KeysTesting {
     @Test
     public void inFirefoxTest() throws AWTException {
         BrowserPage browserPage = new BrowserPage();
-
         browserPage.testAltLetterCombinationKey("Firefox");
         browserPage.testCtrlLetterCombinationKey("Firefox");
         browserPage.testAltNumberKeyInNewBrowserWindow("Firefox");
@@ -46,7 +46,6 @@ public class KeysTesting {
     @Test
     public void inOperaTest() throws AWTException {
         BrowserPage browserPage = new BrowserPage();
-
         browserPage.testAltLetterCombinationKey("Opera");
         browserPage.testCtrlLetterCombinationKey("Opera");
         browserPage.testAltNumberKeyInNewBrowserWindow("Opera");
@@ -56,34 +55,28 @@ public class KeysTesting {
 //    @Test
 //    public void inEdgeTest() throws AWTException {
 //        BrowserPage browserPage = new BrowserPage();
-//
-//        browserPage.testAltLetterCombinationKey("Chrome");
-//        browserPage.testCtrlLetterCombinationKey("Chrome");
-//        browserPage.testAltNumberKeyInNewBrowserWindow("Chrome");
-//        browserPage.testCtrlNumberInNewBrowserWindow("Chrome");
+//        browserPage.testAltLetterCombinationKey("Edge");
+//        browserPage.testCtrlLetterCombinationKey("Edge");
+//        browserPage.testAltNumberKeyInNewBrowserWindow("Edge");
+//        browserPage.testCtrlNumberInNewBrowserWindow("Edge");
 //    }
-//
-//    @Test
-//    public void inIETest() throws AWTException {
-//        BrowserManager.openBrowser(new InternetExplorerDriver());
-//        Navigator.openBrowserPage().testKeys();
-//    }
+
+    @Test
+    public void inIETest() throws AWTException {
+        BrowserPage browserPage = new BrowserPage();
+        browserPage.testAltLetterCombinationKey("Explorer");
+        browserPage.testCtrlLetterCombinationKey("Explorer");
+        browserPage.testAltNumberKeyInNewBrowserWindow("Explorer");
+        browserPage.testCtrlNumberInNewBrowserWindow("Explorer");
+    }
 
 //    @Test  TODO Safari Test on MacOS
-//    public void inIETest() throws AWTException {
-//        BrowserManager.openBrowser(new InternetExplorerDriver());
-//        Navigator.openBrowserPage().testKeys();
+//    public void safaryTest() throws AWTException {
+//        BrowserPage browserPage = new BrowserPage();
+//        browserPage.testAltLetterCombinationKey("Safari");
+//        browserPage.testCtrlLetterCombinationKey("Safari");
+//        browserPage.testAltNumberKeyInNewBrowserWindow("Safari");
+//        browserPage.testCtrlNumberInNewBrowserWindow("Safari");
 //    }
 
-//    @AfterMethod
-//    public void closeBrowser() {
-//        BrowserManager.closeBrowser();
-//    }
-
-  /*
-    @AfterMethod
-    public void closeBrowser() {
-        BrowserManager.closeBrowser();
-    }
-  */
 }

@@ -18,9 +18,6 @@ import static assecobs.macrologic.technology.framework.Navigator.TEST_URL;
 
 public class BrowserPage {
 
-//    @FindBy(id = "list")
-//    private WebElement element;
-
     public static void pause() {
         try {
             Thread.sleep(500);
@@ -105,6 +102,7 @@ public class BrowserPage {
     public void testAltLetterCombinationKey(String browser) throws AWTException {
         Robot rb = new Robot();
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(browser).append("\n").append("Test");
         for (int i = KeyEvent.VK_A; i <= KeyEvent.VK_Z; i++) {
             this.initBrowser(browser);
             getDriver().navigate().to(TEST_URL);
@@ -135,6 +133,7 @@ public class BrowserPage {
     public void testCtrlLetterCombinationKey(String browser) throws AWTException {
         Robot rb = new Robot();
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(browser).append("\n").append("Test");
         for (int i = KeyEvent.VK_A; i <= KeyEvent.VK_Z; i++) {
             this.initBrowser(browser);
             getDriver().navigate().to(TEST_URL);
@@ -165,6 +164,7 @@ public class BrowserPage {
     public void testCtrlNumberInNewBrowserWindow(String browser) throws AWTException {
         Robot rb = new Robot();
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(browser).append("\n").append("Test");
         for (int i = KeyEvent.VK_0; i <= KeyEvent.VK_9; i++) {
             this.initBrowser(browser);
             getDriver().navigate().to(TEST_URL);
@@ -195,6 +195,7 @@ public class BrowserPage {
     public void testAltNumberKeyInNewBrowserWindow(String browser) throws AWTException {
         Robot rb = new Robot();
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(browser).append("\n").append("Test");
         for (int i = KeyEvent.VK_0; i <= KeyEvent.VK_9; i++) {
             this.initBrowser(browser);
             getDriver().navigate().to(TEST_URL);
@@ -210,12 +211,12 @@ public class BrowserPage {
 
             try {
                 if (testPage.getElement().getText().length() > 2) {
-                    stringBuilder.append("Selenium Alt + " + (char) i + " Success \n");
+                    stringBuilder.append("Selenium Alt + ").append((char) i).append(" Success \n");
                 } else {
-                    stringBuilder.append("Selenium Alt + " + (char) i + " Failed \n");
+                    stringBuilder.append("Selenium Alt + ").append((char) i).append(" Failed \n");
                 }
             } catch (WebDriverException webException) {
-                stringBuilder.append("Selenium Alt + " + (char) i + " Failed \n");
+                stringBuilder.append("Selenium Alt + ").append((char) i).append(" Failed \n");
             }
             BrowserManager.closeBrowser();
         }
