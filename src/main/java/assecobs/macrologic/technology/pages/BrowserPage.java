@@ -12,6 +12,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import static assecobs.macrologic.technology.framework.BrowserManager.getDriver;
 import static assecobs.macrologic.technology.framework.Navigator.TEST_URL;
@@ -128,6 +132,7 @@ public class BrowserPage {
             pause();
         }
         System.out.println(stringBuilder);
+        writeLog(stringBuilder.toString());
     }
 
     public void testCtrlLetterCombinationKey(String browser) throws AWTException {
@@ -159,6 +164,7 @@ public class BrowserPage {
             BrowserManager.closeBrowser();
         }
         System.out.println(stringBuilder.toString());
+        writeLog(stringBuilder.toString());
     }
 
     public void testCtrlNumberInNewBrowserWindow(String browser) throws AWTException {
@@ -190,6 +196,7 @@ public class BrowserPage {
             BrowserManager.closeBrowser();
         }
         System.out.println(stringBuilder.toString());
+        writeLog(stringBuilder.toString());
     }
 
     public void testAltNumberKeyInNewBrowserWindow(String browser) throws AWTException {
@@ -221,6 +228,20 @@ public class BrowserPage {
             BrowserManager.closeBrowser();
         }
         System.out.println(stringBuilder.toString());
+        writeLog(stringBuilder.toString());
     }
+
+    public void writeLog(String str) {
+        try (
+                FileWriter fw = new FileWriter("testKeyLog.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw)) {
+                out.println(str);
+        } catch (
+                IOException e) {
+            //exception handling left as an exercise for the reader
+        }
+    }
+
 
 }
